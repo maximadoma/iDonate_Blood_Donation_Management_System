@@ -176,38 +176,35 @@
                         ?>
                     <?php endforeach; ?>
 
-                   <?php
 
-                
-                $months = array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
-                $dataPoints1 = array();
+                    <?php
+                    $months = array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
+                    $dataPoints1 = array();
+                    
+                    // Loop through all months
+                    for ($i = 0; $i < count($months); $i++) {
+                        $monthName = $months[$i];
+                        $query = "SELECT COUNT(*) AS total_donations FROM blood_inventory WHERE MONTHNAME(date_created) = '$monthName' AND status = 1";
 
-                // Loop through all months
-                for ($i = 0; $i < count($months); $i++) {
-                    $monthName = $months[$i];
-                    $query = "SELECT COUNT(*) AS total_donations FROM blood_inventory WHERE MONTHNAME(date_created) = '$monthName' AND status = 1";
+                        $result = mysqli_query($conn, $query);
 
-                    $result = mysqli_query($conn, $query);
-
-                    if ($result->num_rows > 0) {
-                        $row = mysqli_fetch_assoc($result);
-                        $dataPoints1[] = array(
-                            "label" => $monthName,
-                            "y" => $row['total_donations']
-                        );
-                    } else {
-                        // Handle cases where there are no donations for a month
-                        $dataPoints[] = array(
-                            "label" => $monthName,
-                            "y" => 0
-                        );
+                        if ($result->num_rows > 0) {
+                            $row = mysqli_fetch_assoc($result);
+                            $dataPoints1[] = array(
+                                "label" => $monthName,
+                                "y" => $row['total_donations']
+                            );
+                        } else {
+                            // Handle cases where there are no donations for a month
+                            $dataPoints[] = array(
+                                "label" => $monthName,
+                                "y" => 0
+                            );
+                        }
                     }
-                }
 
-                mysqli_close($conn);
-
-               
-                ?>
+                    mysqli_close($conn);
+                    ?>
 
 
                     <div class="row justify-content-between row-stats">
@@ -228,29 +225,26 @@
 
                         <div class="col-xl-7 col-lg-5">
                             <div class="card mb-4 ml-1 table-month">
-                                <div class="card-header py-3">
+                                <div class="card-header py-3 d-flex justify-content-between align-items-center">
                                     <h6 class="m-0 font-weight-bold">Donations Summary</h6>
                                 </div>
-
-                                <div class="card-body">
-                                    <div class="chart-pie pt-4">
-                                        <div id="chartContainer1" style="height: 370px; width: 100%;"></div>
-
-
-                                    </div>
-                                </div>
+                        <div class="card-body">
+                            <div class="chart-pie pt-4">
+                                <div id="chartContainer1" style="height: 370px; width: 100%;"></div>
                             </div>
                         </div>
-
                     </div>
-
-                    <!--For Dasboard Status-->
-
-
                 </div>
+
             </div>
+
+            <!--For Dasboard Status-->
+
+
         </div>
     </div>
+</div>
+</div>
 </div>
 
 <script src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
@@ -306,10 +300,11 @@
         chart.render();
         chart1.render();
 
+      
+
+
 
     }
-
-
 
 
     $('#manage-records').submit(function (e) {

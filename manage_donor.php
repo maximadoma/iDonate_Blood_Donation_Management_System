@@ -22,6 +22,10 @@ foreach($qry->fetch_array() as $k => $val){
 			</select>
 		</div>
 		<div class="form-group">
+			<label for="" class="control-label">Birth Date</label>
+			<input type="date" class="form-control" name="birth_date"  value="<?php echo isset($birth_date) ? $birth_date :'' ?>">
+		</div>
+		<div class="form-group">
 			<label for="" class="control-label">Address</label>
 			<textarea cols="30" rows = "2" required="" name="address" class="form-control"><?php echo isset($address) ? $address :'' ?></textarea>
 		</div>

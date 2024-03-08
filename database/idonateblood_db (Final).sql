@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 03, 2024 at 06:25 AM
+-- Generation Time: Mar 08, 2024 at 04:07 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `bloodbank_db`
+-- Database: `idonateblood_db`
 --
 
 -- --------------------------------------------------------
@@ -68,6 +68,7 @@ CREATE TABLE `donors` (
   `blood_type` varchar(10) NOT NULL,
   `name` text NOT NULL,
   `gender` varchar(6) NOT NULL,
+  `birth_date` date NOT NULL DEFAULT current_timestamp(),
   `address` text NOT NULL,
   `contact` varchar(20) NOT NULL,
   `email` varchar(50) NOT NULL,
@@ -78,27 +79,27 @@ CREATE TABLE `donors` (
 -- Dumping data for table `donors`
 --
 
-INSERT INTO `donors` (`id`, `blood_type`, `name`, `gender`, `address`, `contact`, `email`, `date_created`) VALUES
-(1, 'A-', 'Cristian Jay Pesongco', 'Male', 'Hagonoy, Davao del Sur', '09345670987', 'cristianpesongco@email.com', '2024-03-02 14:12:44'),
-(2, 'AB+', 'Mariano Ongkas III', 'Male', 'Rizal Avenue, Digos City', '78979654654', 'marianoongkas@email.com', '2024-03-02 17:19:49'),
-(3, 'O+', 'Renz Ivan S. Polancos', 'Male', 'Digos City', '90761290865', 'ivanpolancos@email.com', '2024-03-02 18:10:52'),
-(4, 'AB-', 'John Ghlen Dealdo', 'Male', 'Hagonoy, Davao del Sur', '09345679812', 'ghlenjohn@email.com', '2024-03-02 18:11:27'),
-(5, 'B+', 'Juana Mae Bausing', 'Female', 'Digos City, Davao del Sur', '09881240989', 'juannabausing@email.com', '2024-03-02 18:11:53'),
-(6, 'AB+', 'Rovic Constantino', 'Female', 'Davao City, Davao del Sur', '09122349867', 'rovicconstantino@email.com', '2024-03-02 18:12:27'),
-(7, 'O-', 'Edsel Payan', 'Male', 'Digos City', '09674437781', 'edselpayan@email.com', '2024-03-02 18:13:02'),
-(8, 'O+', 'Christine Agravante', 'Female', 'Padada, Davao del Sur', '09875641289', 'christine098@email.com', '2024-03-02 18:13:55'),
-(9, 'B+', 'Francis John Jinayon', 'Male', 'Digos City', '09675421789', 'francisjohn@email.com', '2024-03-02 18:15:33'),
-(10, 'A+', 'Fritzie Apple Leonida', 'Male', 'Davao City, Davao del Sur', '0934217866', 'appleleonida@email.com', '2024-03-02 18:16:01'),
-(11, 'O-', 'Gene Ryan Depalubos', 'Male', 'Digos City', '09897675521', 'generyan@email.com', '2024-03-02 18:17:07'),
-(12, 'B+', 'Vincent Ace Rivera', 'Male', 'Digos City', '09876542312', 'vincentace@email.com', '2024-03-02 18:17:41'),
-(13, 'B+', 'Fernyl Jean Maningo', 'Male', 'Digos City', '09651234598', 'fernylmaningo@email.com', '2024-03-02 18:18:06'),
-(14, 'AB+', 'Asnari Pacalna', 'Male', 'Digos City', '09871128736', 'asnaripacalna@email.com', '2024-03-02 18:18:50'),
-(15, 'A-', 'Allan Corpuz Jr.', 'Male', 'Rizal Avenue, Digos City, Dava del Sur', '09468791646', 'allancorpuz@email.com', '2024-03-02 18:19:22'),
-(16, 'O+', 'Arjay Escabas', 'Male', 'Digos City', '09871245672', 'arjayescabas@email.com', '2024-03-02 18:20:11'),
-(17, 'AB-', 'Khiane Aquino', 'Female', 'Padada, Davao del Sur', '09876542312', 'khiane@email.com', '2024-03-02 18:20:38'),
-(18, 'AB+', 'Roderick Tajos', 'Male', 'Digos City', '09865412345', 'tajosroderick@email.com', '2024-03-02 18:21:17'),
-(19, 'AB-', 'Aliazer Solaiman', 'Male', 'Digos City', '09098712365', 'aliazer@email.com', '2024-03-02 18:26:49'),
-(20, 'B+', 'Rogene Carl Rosalijos', 'Male', 'Digos City', '09786512387', 'bajigrosalijos@email.com', '2024-03-02 18:28:02');
+INSERT INTO `donors` (`id`, `blood_type`, `name`, `gender`, `birth_date`, `address`, `contact`, `email`, `date_created`) VALUES
+(1, 'A-', 'Cristian Jay Pesongco', 'Male', '0000-00-00', 'Hagonoy, Davao del Sur', '09345670987', 'cristianpesongco@email.com', '2024-03-02 14:12:44'),
+(2, 'AB+', 'Mariano Ongkas III', 'Male', '2002-04-19', 'Rizal Avenue, Digos City', '78979654654', 'marianoongkas@email.com', '2024-03-02 17:19:49'),
+(3, 'O+', 'Renz Ivan S. Polancos', 'Male', '2000-03-16', 'Digos City', '90761290865', 'ivanpolancos@email.com', '2024-03-02 18:10:52'),
+(4, 'AB-', 'John Ghlen Dealdo', 'Male', '2002-04-27', 'Hagonoy, Davao del Sur', '09345679812', 'ghlenjohn@email.com', '2024-03-02 18:11:27'),
+(5, 'B+', 'Juana Mae Bausing', 'Female', '2003-01-21', 'Digos City, Davao del Sur', '09881240989', 'juannabausing@email.com', '2024-03-02 18:11:53'),
+(6, 'AB+', 'Rovic Constantino', 'Female', '2002-11-13', 'Davao City, Davao del Sur', '09122349867', 'rovicconstantino@email.com', '2024-03-02 18:12:27'),
+(7, 'O-', 'Edsel Payan', 'Male', '2004-06-15', 'Digos City', '09674437781', 'edselpayan@email.com', '2024-03-02 18:13:02'),
+(8, 'O+', 'Christine Agravante', 'Female', '2003-02-11', 'Padada, Davao del Sur', '09875641289', 'christine098@email.com', '2024-03-02 18:13:55'),
+(9, 'B+', 'Francis John Jinayon', 'Male', '2002-08-09', 'Digos City', '09675421789', 'francisjohn@email.com', '2024-03-02 18:15:33'),
+(10, 'A+', 'Fritzie Apple Leonida', 'Male', '2000-05-20', 'Davao City, Davao del Sur', '0934217866', 'appleleonida@email.com', '2024-03-02 18:16:01'),
+(11, 'O-', 'Gene Ryan Depalubos', 'Male', '2003-09-19', 'Digos City', '09897675521', 'generyan@email.com', '2024-03-02 18:17:07'),
+(12, 'B+', 'Vincent Ace Rivera', 'Male', '2004-09-09', 'Digos City', '09876542312', 'vincentace@email.com', '2024-03-02 18:17:41'),
+(13, 'B+', 'Fernyl Jean Maningo', 'Female', '2003-08-21', 'Digos City', '09651234598', 'fernylmaningo@email.com', '2024-03-02 18:18:06'),
+(14, 'AB+', 'Asnari Pacalna', 'Male', '2003-05-12', 'Digos City', '09871128736', 'asnaripacalna@email.com', '2024-03-02 18:18:50'),
+(15, 'A-', 'Allan Corpuz Jr.', 'Male', '2002-11-20', 'Rizal Avenue, Digos City, Davao del Sur', '09468791646', 'allancorpuz@email.com', '2024-03-02 18:19:22'),
+(16, 'O+', 'Arjay Escabas', 'Male', '2003-10-20', 'Digos City', '09871245672', 'arjayescabas@email.com', '2024-03-02 18:20:11'),
+(17, 'AB-', 'Khiane Aquino', 'Male', '2002-09-13', 'Padada, Davao del Sur', '09876542312', 'khiane@email.com', '2024-03-02 18:20:38'),
+(18, 'AB+', 'Roderick Tajos', 'Male', '2003-05-12', 'Digos City', '09865412345', 'tajosroderick@email.com', '2024-03-02 18:21:17'),
+(19, 'AB-', 'Aliazer Solaiman', 'Male', '2003-01-24', 'Digos City', '09098712365', 'aliazer@email.com', '2024-03-02 18:26:49'),
+(20, 'B+', 'Rogene Carl Rosalijos', 'Male', '2003-11-29', 'Digos City', '09786512387', 'bajigrosalijos@email.com', '2024-03-02 18:28:02');
 
 -- --------------------------------------------------------
 

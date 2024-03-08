@@ -219,6 +219,7 @@ Class Action {
 		extract($_POST);
 		$data = " name = '$name' ";
 		$data .= ", gender = '$gender' ";
+		$data .= ", birth_date = '$birth_date' ";
 		$data .= ", address = '$address' ";
 		$data .= ", email = '$email' ";
 		$data .= ", contact = '$contact' ";
@@ -231,6 +232,8 @@ Class Action {
 		if($save)
 			return 1;
 	}
+
+	
 	function delete_donor(){
 		extract($_POST);
 		$delete = $this->db->query("DELETE FROM donors where id = ".$id);

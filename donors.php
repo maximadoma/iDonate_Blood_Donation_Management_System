@@ -26,7 +26,7 @@
 								<tr>
 									<th class="text-center">#</th>
 									<th class="">Donor</th>
-									<th class="">Blood Group</th>
+									<th class="">Blood Type</th>
 									<th class="">Information</th>
 									<th class="">Previous Donation</th>
 									<th class="text-center">Action</th>
@@ -50,6 +50,7 @@
 									</td>
 									<td class="">
 										 <p>Gender: <b><?php echo $row['gender']; ?></b></p>
+										 <p>Birth Date: <b><?php echo $row['birth_date']; ?></b></p>
 										 <p>Email: <b><?php echo $row['email']; ?></b></p>
 										 <p>Address: <b><?php echo $row['address']; ?></b></p>
 										 <p>Contact: <b><?php echo $row['contact']; ?></b></p>
