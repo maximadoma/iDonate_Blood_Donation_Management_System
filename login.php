@@ -15,7 +15,7 @@ ob_end_flush();
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
+  <link rel="icon" href="assets/uploads/iDonate_logo.png">
   <title><?php echo $_SESSION['system']['name'] ?></title>
  	
 
@@ -46,6 +46,7 @@ header("location:index.php?page=home");
 		background:yellow;
 		display: flex;
 		align-items: center;
+		background-color: #CD0000;
 	}
 	#login-left{
 		position: absolute;
@@ -55,13 +56,14 @@ header("location:index.php?page=home");
 		background:#59b6ec61;
 		display: flex;
 		align-items: center;
-		background: url(assets/uploads/donation.jpg);
+		background: url(assets/uploads/login_wallpaper.png);
 	    background-repeat: no-repeat;
 	    background-size: cover;
 	}
 	#login-right .card{
 		margin: auto;
 		z-index: 1
+	
 	}
 	.logo {
     margin: auto;
@@ -79,8 +81,10 @@ div#login-right::before {
     left: 0;
     width: calc(100%);
     height: calc(100%);
-    /*background: #000000e0;*/
+   
 }
+
+
 
 </style>
 
@@ -91,9 +95,10 @@ div#login-right::before {
   		<div id="login-left">
   		</div>
 
-  		<div id="login-right" class="bg-danger">
+  		<div id="login-right">
   			<div class="w-100">
-			<h4 class="text-white text-center"><b><?php echo $_SESSION['system']['name'] ?></b></h4>
+			<!-- <h4 class="text-white text-center"><b>?php echo $_SESSION['system']['name'] ?></b></h4> -->
+			<h4 class="text-login text-center text-white"><b>Login</b></h4>
 			<br>
 			<br>
   			<div class="card col-md-8">
